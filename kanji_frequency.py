@@ -46,7 +46,7 @@ def build_kanji_frequency_list(text_list, kanji_list):
 
 
 # Creates a .txt file to store the frequency list
-def create_frequency_file(kanji_frequency):
+def create_frequency_file(kanji_frequency, source):
     target = source.replace(".txt", "") + "_kanji_frequency.txt"
     kanji_frequency_formatted = ""
     for i in range(len(kanji_frequency)):
@@ -65,7 +65,7 @@ def main(source):
     for i in range(0, 20):
         print(str(kanji_frequency[i][0]) + " - " + str(kanji_frequency[i][1]))
     print("\n" + str(len(kanji_frequency)) + " different Kanjis")
-    create_frequency_file(kanji_frequency)
+    create_frequency_file(kanji_frequency, source)
 
 
 # Alternative to "main" for pygal output
@@ -92,3 +92,5 @@ def pygal_frequency_list(source):
         pygal_frequency_list.append(kanji_frequency[i][1])
 
     return pygal_frequency_list
+
+main("japanese_texts\ginga_tetsudou_no_yoru.txt")
